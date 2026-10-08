@@ -58,7 +58,7 @@ def main():
 
     # --- 3.3 Carga del modelo y apertura de la cámara ---
     model = YOLO("yolo11n-pose.pt")  # versión "pose": devuelve 17 puntos del cuerpo
-    cap = cv2.VideoCapture(args.camera)
+    cap = cv2.VideoCapture(args.camera, cv2.CAP_DSHOW)  # DSHOW abre mucho más rápido que MSMF en Windows
     if not cap.isOpened():
         raise RuntimeError("No se pudo abrir la cámara")
 
